@@ -1,0 +1,29 @@
+# 微信开发者工具
+.DS_Store
+project.private.config.json
+
+# 依赖
+node_modules/
+
+# 临时文件
+*.log
+*.tmp
+.claude/
+
+# Python缓存
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 构建输出
+dist/
+build/
+
+# 环境配置
+.env
+.env.local

@@ -1,0 +1,79 @@
+<!--packageBasic/pages/content/content.wxml-->
+<view class="content-container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input
+      class="search-input"
+      placeholder="搜索面试题..."
+      value="{{searchText}}"
+      bindinput="onSearch"
+    />
+  </view>
+
+  <!-- 章节导航 -->
+  <scroll-view class="chapter-nav" scroll-x>
+    <view
+      class="chapter-item {{currentSection === '' ? 'active' : ''}}"
+      bindtap="selectSection"
+      data-section=""
+    >全部({{total}})</view>
+    <view
+      wx:for="{{sections}}"
+      wx:key="id"
+      class="chapter-item {{currentSection === item.name ? 'active' : ''}}"
+      bindtap="selectSection"
+      data-section="{{item.name}}"
+    >{{item.name}}({{item.count}})</view>
+  </scroll-view>
+
+  <!-- 问题列表 -->
+  <view class="question-list">
+    <view
+      wx:for="{{displayQuestions}}"
+      wx:key="index"
+      class="question-card card"
+      bindtap="toggleQuestion"
+      data-index="{{index}}"
+    >
+      <!-- 问题标题 -->
+      <view class="question-header">
+        <view class="question-number">{{item.index}}</view>
+        <view class="question-title">{{item.title}}</view>
+        <view class="question-toggle {{expandedIndex === item.index ? 'expanded' : ''}}">▼</view>
+      </view>
+
+      <!-- 问题详情 -->
+      <view class="question-detail" wx:if="{{expandedIndex === item.index}}">
+        <!-- 速记 -->
+        <view class="quick-note" wx:if="{{item.quickNote}}">
+          <view class="quick-note-title">💡 速记</view>
+          <view class="quick-note-content">
+            <text>{{item.quickNote}}</text>
+          </view>
+        </view>
+
+        <!-- 摘要 -->
+        <view class="content-text" wx:if="{{item.summary}}">
+          <text>{{item.summary}}</text>
+        </view>
+
+        <!-- 追问 -->
+        <view class="follow-up" wx:if="{{item.followUp.length > 0}}">
+          <view class="follow-up-title">💬 面试官追问</view>
+          <view wx:for="{{item.followUp}}" wx:for-item="fu" wx:for-index="fuIndex" wx:key="fuIndex" class="follow-up-item">
+            <view class="follow-up-question">{{fu.question}}</view>
+            <view class="follow-up-answer">{{fu.answer}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="load-more" bindtap="loadMore" wx:if="{{hasMore}}">
+    点击加载更多 (已加载 {{loadedCount}}/{{total}})
+  </view>
+
+  <!-- 回到顶部 -->
+  <view class="back-top" bindtap="backToTop" wx:if="{{showBackTop}}">↑</view>
+</view>

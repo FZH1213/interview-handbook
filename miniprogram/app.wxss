@@ -1,0 +1,249 @@
+/**app.wxss - 莫兰迪色系全局样式**/
+
+/* 莫兰迪色系定义 */
+page {
+  --color-bg: #F5F1EB;           /* 米灰背景 */
+  --color-bg-card: #FFFFFF;       /* 卡片白 */
+  --color-primary: #A69F98;       /* 主色-灰棕 */
+  --color-primary-light: #C4B7A6; /* 浅驼色 */
+  --color-primary-dark: #8B8589;  /* 深灰 */
+  --color-text: #3D3A36;          /* 主文字 */
+  --color-text-secondary: #6B6560; /* 次文字 */
+  --color-text-light: #9A958F;    /* 浅文字 */
+  --color-border: #E8E4E0;        /* 边框色 */
+  --color-accent: #9B8F82;        /* 强调色-棕灰 */
+  --color-accent-warm: #B8A99A;   /* 暖灰棕 */
+  --color-success: #9CA98C;       /* 莫兰迪绿 */
+  --color-warning: #C4A989;       /* 莫兰迪橙 */
+
+  background-color: var(--color-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: var(--color-text);
+}
+
+.container {
+  padding: 20rpx;
+}
+
+/* 通用卡片样式 - 纸质感 */
+.card {
+  background: var(--color-bg-card);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(61, 58, 54, 0.04),
+              0 2rpx 8rpx rgba(61, 58, 54, 0.02);
+  border: 1rpx solid rgba(232, 228, 224, 0.6);
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 40rpx 0 24rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid var(--color-primary);
+  letter-spacing: 2rpx;
+}
+
+/* 问题标题 */
+.question-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 20rpx;
+  line-height: 1.6;
+}
+
+/* 速记样式 - 奶茶色背景 */
+.quick-note {
+  background: linear-gradient(135deg, #F5F0E8 0%, #EBE6DE 100%);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 20rpx 0;
+  border-left: 4rpx solid var(--color-accent-warm);
+}
+
+.quick-note-title {
+  font-size: 24rpx;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 12rpx;
+  letter-spacing: 1rpx;
+}
+
+.quick-note-content {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* 正文内容 */
+.content-text {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+  margin-bottom: 20rpx;
+  letter-spacing: 0.5rpx;
+}
+
+/* 追问区域 - 浅米色 */
+.follow-up {
+  background: linear-gradient(135deg, #FBF9F6 0%, #F8F5F0 100%);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-top: 28rpx;
+  border-left: 4rpx solid var(--color-warning);
+}
+
+.follow-up-title {
+  font-size: 26rpx;
+  color: var(--color-warning);
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  letter-spacing: 1rpx;
+}
+
+.follow-up-item {
+  margin-bottom: 24rpx;
+  padding-bottom: 24rpx;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.follow-up-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.follow-up-question {
+  font-size: 26rpx;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 12rpx;
+  line-height: 1.6;
+}
+
+.follow-up-answer {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* 代码块 */
+.code-block {
+  background: #F5F3F0;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 20rpx 0;
+  overflow-x: auto;
+  border: 1rpx solid var(--color-border);
+}
+
+.code-block text {
+  color: var(--color-text);
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+/* 列表样式 */
+.list-item {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  padding-left: 24rpx;
+  position: relative;
+  margin-bottom: 12rpx;
+}
+
+.list-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: 36rpx 0;
+}
+
+/* 搜索框 */
+.search-box {
+  background: var(--color-bg-card);
+  padding: 24rpx;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4rpx 16rpx rgba(61, 58, 54, 0.03);
+}
+
+.search-input {
+  background: var(--color-bg);
+  border-radius: 48rpx;
+  padding: 20rpx 32rpx;
+  font-size: 28rpx;
+  border: 1rpx solid var(--color-border);
+  color: var(--color-text);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-light);
+}
+
+/* 章节导航 */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx;
+  background: var(--color-bg-card);
+}
+
+.chapter-item {
+  padding: 16rpx 28rpx;
+  background: var(--color-bg);
+  border-radius: 24rpx;
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin: 8rpx;
+  border: 1rpx solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.chapter-item.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 4rpx 12rpx rgba(166, 159, 152, 0.3);
+}
+
+/* 加载更多 */
+.load-more {
+  text-align: center;
+  padding: 40rpx;
+  color: var(--color-text-light);
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+}
+
+/* 回到顶部 */
+.back-top {
+  position: fixed;
+  right: 32rpx;
+  bottom: 160rpx;
+  width: 88rpx;
+  height: 88rpx;
+  background: var(--color-bg-card);
+  border-radius: 50%;
+  box-shadow: 0 8rpx 24rpx rgba(61, 58, 54, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: var(--color-primary);
+  border: 1rpx solid var(--color-border);
+}

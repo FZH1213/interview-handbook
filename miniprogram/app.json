@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/basic/content",
+    "pages/advanced/content"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#A69F98",
+    "navigationBarTitleText": "前端面试题",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#666666",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/basic/content",
+        "text": "基础面试",
+        "iconPath": "assets/basic.png",
+        "selectedIconPath": "assets/basic-active.png"
+      },
+      {
+        "pagePath": "pages/advanced/content",
+        "text": "进阶面试",
+        "iconPath": "assets/advanced.png",
+        "selectedIconPath": "assets/advanced-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
