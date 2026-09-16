@@ -15,7 +15,7 @@
 
       <!-- 追问 -->
       <view class="follow-up" wx:if="{{question.followUp && question.followUp.length > 0}}">
-        <view class="follow-up-title">💬 面试官追问</view>
+        <view class="follow-up-title">📢 追问</view>
         <view wx:for="{{question.followUp}}" wx:for-item="fu" wx:for-index="fuIndex" wx:key="fuIndex" class="follow-up-item">
           <view class="follow-up-question">{{fu.question}}</view>
           <view class="follow-up-answer">{{fu.answer}}</view>

@@ -39,8 +39,29 @@
     </view>
   </view>
 
-  <!-- 提示信息 -->
-  <view class="tips" wx:if="{{!hasUserInfo}}">
-    <text class="tips-text">设置头像后可记录学习进度</text>
+  <!-- 打赏区域 -->
+  <view class="donation-section">
+    <view class="donation-title">☕ 支持开发者，一分也是爱。</view>
+    <view class="donation-desc">如果这个小程序对你有帮助，欢迎打赏支持~</view>
+    <view class="donation-qrcodes">
+      <view class="qrcode-item">
+        <image class="qrcode-img" src="/assets/wechat-pay.png" mode="aspectFit" show-menu-by-longpress="{{true}}"></image>
+        <text class="qrcode-label">微信</text>
+      </view>
+      <view class="qrcode-item">
+        <image class="qrcode-img" src="/assets/alipay.png" mode="aspectFit" show-menu-by-longpress="{{true}}"></image>
+        <text class="qrcode-label">支付宝</text>
+      </view>
+    </view>
+
+    <!-- 打赏滚动 -->
+    <view class="donation-scroll">
+      <view class="donation-item {{donationVisible ? 'visible' : ''}}">
+        <text class="donation-name">{{donationList[currentDonation].name}}</text>
+        <text class="donation-action">打赏了</text>
+        <text class="donation-amount">{{donationList[currentDonation].amount}}</text>
+        <text class="donation-unit">元</text>
+      </view>
+    </view>
   </view>
 </view>

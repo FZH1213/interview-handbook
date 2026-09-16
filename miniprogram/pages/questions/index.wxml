@@ -13,7 +13,7 @@
       data-path="{{item.path}}"
       bindtap="navigateToModule"
     >
-      <image class="module-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <image class="module-icon module-icon-{{item.id}}" src="{{item.icon}}" mode="aspectFit"></image>
       <view class="module-info">
         <text class="module-title">{{item.title}}</text>
         <text class="module-desc">{{item.desc}}</text>

@@ -51,6 +51,12 @@
   margin-right: 24rpx;
 }
 
+.module-icon-basic {
+  width: 54rpx;
+  height: 64rpx;
+  padding: 0 20rpx;
+}
+
 .module-info {
   flex: 1;
 }
