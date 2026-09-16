@@ -51,7 +51,7 @@
 .stat-number {
   font-size: 72rpx;
   font-weight: 500;
-  color: #A69F98;
+  color: #877a6c;
   letter-spacing: 2rpx;
 }
 
@@ -68,79 +68,48 @@
   background: linear-gradient(180deg, transparent, #E8E4E0, transparent);
 }
 
-.menu {
-  margin-top: 48rpx;
+/* 邀请码验证区域 */
+.invite-section {
+  margin-top: 80rpx;
+  text-align: center;
 }
 
-.menu-item {
+.invite-box {
   display: flex;
-  align-items: center;
-  background: #FFFFFF;
-  border-radius: 24rpx;
-  padding: 40rpx;
+  justify-content: center;
+  gap: 24rpx;
   margin-bottom: 24rpx;
-  box-shadow: 0 8rpx 32rpx rgba(61, 58, 54, 0.06);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.menu-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 6rpx;
-}
-
-.menu-item:nth-child(1)::before {
-  background: linear-gradient(180deg, #8B9DAA 0%, #7A8B99 100%);
-}
-
-.menu-item:nth-child(2)::before {
-  background: linear-gradient(180deg, #C4A5A5 0%, #A88888 100%);
-}
-
-.menu-item:active {
-  transform: scale(0.98);
-  box-shadow: 0 4rpx 16rpx rgba(61, 58, 54, 0.08);
-}
-
-.menu-icon {
-  font-size: 72rpx;
-  margin-right: 32rpx;
-  margin-left: 16rpx;
-  opacity: 0.95;
-}
-
-.menu-content {
-  flex: 1;
-}
-
-.menu-title {
-  font-size: 34rpx;
-  font-weight: 500;
-  color: #3D3A36;
-  margin-bottom: 12rpx;
-  letter-spacing: 1rpx;
-}
-
-.menu-desc {
-  font-size: 24rpx;
-  color: #9A958F;
-  letter-spacing: 0.5rpx;
-}
-
-.menu-arrow {
+.invite-input {
+  width: 88rpx;
+  height: 88rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  border: 2rpx solid #E8E4E0;
   font-size: 48rpx;
-  color: #C4B7A6;
-  opacity: 0.6;
+  text-align: center;
+  color: #3D3A36;
+  font-weight: 500;
+}
+
+.invite-input:focus {
+  border-color: #877a6c;
+  box-shadow: 0 0 0 4rpx rgba(135, 122, 108, 0.1);
+}
+
+.error-msg {
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 0;
+  font-size: 26rpx;
+  color: #C4A5A5;
+  letter-spacing: 1rpx;
 }
 
 .footer {
   text-align: center;
-  padding: 48rpx;
+  padding: 80rpx 48rpx 48rpx;
   color: #9A958F;
   font-size: 24rpx;
   letter-spacing: 1rpx;

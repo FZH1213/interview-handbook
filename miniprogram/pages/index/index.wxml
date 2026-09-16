@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="index-container">
   <view class="header">
-    <view class="logo">📚</view>
+    <view class="logo">🖊️</view>
     <view class="title">前端面试题库</view>
     <view class="subtitle">541道精选面试题</view>
   </view>
@@ -18,27 +18,54 @@
     </view>
   </view>
 
-  <view class="menu">
-    <view class="menu-item" bindtap="goToQuestions">
-      <view class="menu-icon">📘</view>
-      <view class="menu-content">
-        <view class="menu-title">面试题</view>
-        <view class="menu-desc">541道精选面试题，随时复习</view>
-      </view>
-      <view class="menu-arrow">›</view>
+  <!-- 邀请码验证 -->
+  <view class="invite-section">
+    <view class="invite-box">
+      <input
+        class="invite-input"
+        id="input0"
+        type="number"
+        maxlength="1"
+        value="{{code0}}"
+        data-index="0"
+        bindinput="onCodeInput"
+        focus="{{focusIndex === 0}}"
+      />
+      <input
+        class="invite-input"
+        id="input1"
+        type="number"
+        maxlength="1"
+        value="{{code1}}"
+        data-index="1"
+        bindinput="onCodeInput"
+        focus="{{focusIndex === 1}}"
+      />
+      <input
+        class="invite-input"
+        id="input2"
+        type="number"
+        maxlength="1"
+        value="{{code2}}"
+        data-index="2"
+        bindinput="onCodeInput"
+        focus="{{focusIndex === 2}}"
+      />
+      <input
+        class="invite-input"
+        id="input3"
+        type="number"
+        maxlength="1"
+        value="{{code3}}"
+        data-index="3"
+        bindinput="onCodeInput"
+        focus="{{focusIndex === 3}}"
+      />
     </view>
-
-    <view class="menu-item" bindtap="goToSummary">
-      <view class="menu-icon">📊</view>
-      <view class="menu-content">
-        <view class="menu-title">学习总结</view>
-        <view class="menu-desc">查看学习进度，标记重点题目</view>
-      </view>
-      <view class="menu-arrow">›</view>
-    </view>
+    <view class="error-msg">{{errorMsg || '请输入邀请码'}}</view>
   </view>
 
   <view class="footer">
-    <text>每天记一点</text>
+    <text>· 每天记一点 ·</text>
   </view>
 </view>
