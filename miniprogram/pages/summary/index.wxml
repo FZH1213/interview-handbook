@@ -45,14 +45,15 @@
     <view class="donation-desc">如果这个小程序对你有帮助，欢迎打赏支持~</view>
     <view class="donation-qrcodes">
       <view class="qrcode-item">
-        <image class="qrcode-img" src="/assets/wechat-pay.png" mode="aspectFit" show-menu-by-longpress="{{true}}"></image>
+        <image class="qrcode-img" src="/assets/wechat-pay.png" mode="aspectFit" show-menu-by-longpress="{{true}}" bindtap="previewWechatPay"></image>
         <text class="qrcode-label">微信</text>
       </view>
       <view class="qrcode-item">
-        <image class="qrcode-img" src="/assets/alipay.png" mode="aspectFit" show-menu-by-longpress="{{true}}"></image>
+        <image class="qrcode-img" src="/assets/alipay.png" mode="aspectFit" show-menu-by-longpress="{{true}}" bindtap="previewAlipay"></image>
         <text class="qrcode-label">支付宝</text>
       </view>
     </view>
+    <view class="qrcode-tip">点击图片放大，长按识别二维码</view>
 
     <!-- 打赏滚动 -->
     <view class="donation-scroll">

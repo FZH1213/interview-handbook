@@ -108,5 +108,21 @@ Page({
     wx.navigateTo({
       url: '/pages/marked/list?type=toImprove'
     })
+  },
+
+  // 预览微信收款码
+  previewWechatPay() {
+    wx.previewImage({
+      current: '/assets/wechat-pay.png',
+      urls: ['/assets/wechat-pay.png']
+    })
+  },
+
+  // 预览支付宝收款码
+  previewAlipay() {
+    wx.previewImage({
+      current: '/assets/alipay.png',
+      urls: ['/assets/alipay.png']
+    })
   }
 })
