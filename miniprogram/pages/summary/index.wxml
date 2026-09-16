@@ -2,16 +2,20 @@
 <view class="container">
   <!-- 用户信息区域 -->
   <view class="user-section">
-    <block wx:if="{{hasUserInfo}}">
-      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
-      <text class="nickname">{{userInfo.nickName}}</text>
-    </block>
-    <block wx:else>
-      <view class="avatar-placeholder" bindtap="getUserProfile">
+    <button class="avatar-button" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{hasUserInfo}}" class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view wx:else class="avatar-placeholder">
         <text class="avatar-text">点击登录</text>
       </view>
-      <text class="nickname">未登录</text>
-    </block>
+    </button>
+
+    <input
+      class="nickname-input"
+      type="nickname"
+      placeholder="点击设置昵称"
+      value="{{userInfo.nickName || ''}}"
+      bindchange="onNicknameChange"
+    />
   </view>
 
   <!-- 统计卡片 -->
@@ -37,6 +41,6 @@
 
   <!-- 提示信息 -->
   <view class="tips" wx:if="{{!hasUserInfo}}">
-    <text class="tips-text">登录后可记录学习进度</text>
+    <text class="tips-text">设置头像后可记录学习进度</text>
   </view>
 </view>

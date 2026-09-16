@@ -17,30 +17,38 @@ Page({
 
   loadUserData() {
     // 从本地存储加载用户数据
-    const userInfo = wx.getStorageSync('userInfo')
+    const userInfo = wx.getStorageSync('userInfo') || {}
     const mastered = wx.getStorageSync('masteredCount') || 0
     const toImprove = wx.getStorageSync('toImproveCount') || 0
 
     this.setData({
       userInfo,
-      hasUserInfo: !!userInfo,
+      hasUserInfo: !!userInfo.avatarUrl,
       mastered,
       toImprove
     })
   },
 
-  // 获取用户信息
-  getUserProfile() {
-    wx.getUserProfile({
-      desc: '用于展示用户信息',
-      success: (res) => {
-        const userInfo = res.userInfo
-        wx.setStorageSync('userInfo', userInfo)
-        this.setData({
-          userInfo,
-          hasUserInfo: true
-        })
-      }
+  // 选择头像
+  onChooseAvatar(e) {
+    const { avatarUrl } = e.detail
+    const userInfo = this.data.userInfo || {}
+    userInfo.avatarUrl = avatarUrl
+    wx.setStorageSync('userInfo', userInfo)
+    this.setData({
+      userInfo,
+      hasUserInfo: true
+    })
+  },
+
+  // 获取昵称
+  onNicknameChange(e) {
+    const nickname = e.detail.value
+    const userInfo = this.data.userInfo || {}
+    userInfo.nickName = nickname
+    wx.setStorageSync('userInfo', userInfo)
+    this.setData({
+      userInfo
     })
   },
 
