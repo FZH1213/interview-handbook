@@ -44,14 +44,6 @@
 
       <!-- 问题详情 -->
       <view class="question-detail" wx:if="{{expandedIndex === item.index}}">
-        <!-- 速记 -->
-        <view class="quick-note" wx:if="{{item.quickNote}}">
-          <view class="quick-note-title">💡 速记</view>
-          <view class="quick-note-content">
-            <text>{{item.quickNote}}</text>
-          </view>
-        </view>
-
         <!-- 摘要 -->
         <view class="content-text" wx:if="{{item.summary}}">
           <text>{{item.summary}}</text>

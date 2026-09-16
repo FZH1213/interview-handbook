@@ -64,7 +64,6 @@ Page({
       q.index = questions.startIndex + idx + 1
       q.section = q.s
       q.title = q.t
-      q.quickNote = q.q
       q.summary = q.m
       q.followUp = q.f.map(f => ({
         question: f.q,
@@ -119,7 +118,6 @@ Page({
     if (searchText) {
       result = result.filter(q =>
         q.title.toLowerCase().includes(searchText) ||
-        (q.quickNote && q.quickNote.toLowerCase().includes(searchText)) ||
         (q.summary && q.summary.toLowerCase().includes(searchText))
       )
     }
