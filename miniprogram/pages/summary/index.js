@@ -44,11 +44,13 @@ Page({
   initDonationList() {
     const donationList = [
       { name: '老徐**', amount: '3.33' },
-      { name: '3号**', amount: '6.66' },
-      { name: 'sh**', amount: '8.88' },
-      { name: '阿s**', amount: '5.20' },
       { name: '远在**', amount: '0.99' },
-      { name: '林在**', amount: '1.88' }
+      { name: 'sh**', amount: '8.88' },
+      { name: 'te**', amount: '0.88' },
+      { name: '阿s**', amount: '5.20' },
+      { name: '林在**', amount: '1.88' },
+      { name: '3号**', amount: '3.00' },
+      { name: 'wx**', amount: '2.00' },
     ]
     this.setData({ donationList })
   },
