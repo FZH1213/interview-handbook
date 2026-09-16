@@ -2,15 +2,15 @@
 Page({
   data: {},
 
-  goToBasic() {
+  goToQuestions() {
     wx.switchTab({
-      url: '/pages/basic/content'
+      url: '/pages/questions/index'
     })
   },
 
-  goToAdvanced() {
+  goToSummary() {
     wx.switchTab({
-      url: '/pages/advanced/content'
+      url: '/pages/summary/index'
     })
   }
 })

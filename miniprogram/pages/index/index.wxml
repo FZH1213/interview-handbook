@@ -19,20 +19,20 @@
   </view>
 
   <view class="menu">
-    <view class="menu-item" bindtap="goToBasic">
+    <view class="menu-item" bindtap="goToQuestions">
       <view class="menu-icon">📘</view>
       <view class="menu-content">
-        <view class="menu-title">前端面试题完整汇总</view>
-        <view class="menu-desc">368道基础面试题，涵盖HTML、CSS、JS等</view>
+        <view class="menu-title">面试题</view>
+        <view class="menu-desc">541道精选面试题，随时复习</view>
       </view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="goToAdvanced">
-      <view class="menu-icon">🚀</view>
+    <view class="menu-item" bindtap="goToSummary">
+      <view class="menu-icon">📊</view>
       <view class="menu-content">
-        <view class="menu-title">进阶面试题汇总</view>
-        <view class="menu-desc">173道进阶面试题，深度剖析核心知识点</view>
+        <view class="menu-title">学习总结</view>
+        <view class="menu-desc">查看学习进度，标记重点题目</view>
       </view>
       <view class="menu-arrow">›</view>
     </view>

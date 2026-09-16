@@ -1,0 +1,127 @@
+/* pages/summary/index.wxss */
+.container {
+  padding: 40rpx;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f5f5f5 0%, #ffffff 100%);
+}
+
+/* 用户信息区域 */
+.user-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40rpx 0 60rpx;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 24rpx;
+  border: 4rpx solid #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar-placeholder {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  border: 4rpx solid #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar-text {
+  color: white;
+  font-size: 28rpx;
+}
+
+.nickname {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 统计卡片 */
+.stats-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 40rpx 32rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.stat-card:active {
+  transform: scale(0.98);
+}
+
+.stat-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-right: 24rpx;
+}
+
+.mastered .stat-icon {
+  background: #4CAF50;
+  color: white;
+}
+
+.to-improve .stat-icon {
+  background: #FF9800;
+  color: white;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.stat-label {
+  display: block;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.stat-arrow {
+  font-size: 48rpx;
+  color: #ccc;
+}
+
+/* 提示信息 */
+.tips {
+  text-align: center;
+  margin-top: 80rpx;
+  padding: 32rpx;
+  background: #fff3cd;
+  border-radius: 12rpx;
+}
+
+.tips-text {
+  font-size: 28rpx;
+  color: #856404;
+}

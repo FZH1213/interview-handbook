@@ -1,0 +1,42 @@
+<!--pages/summary/index.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-section">
+    <block wx:if="{{hasUserInfo}}">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <text class="nickname">{{userInfo.nickName}}</text>
+    </block>
+    <block wx:else>
+      <view class="avatar-placeholder" bindtap="getUserProfile">
+        <text class="avatar-text">点击登录</text>
+      </view>
+      <text class="nickname">未登录</text>
+    </block>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-section">
+    <view class="stat-card mastered" bindtap="goToMastered">
+      <view class="stat-icon">✓</view>
+      <view class="stat-info">
+        <text class="stat-number">{{mastered}}</text>
+        <text class="stat-label">已摸清</text>
+      </view>
+      <text class="stat-arrow">›</text>
+    </view>
+
+    <view class="stat-card to-improve" bindtap="goToToImprove">
+      <view class="stat-icon">!</view>
+      <view class="stat-info">
+        <text class="stat-number">{{toImprove}}</text>
+        <text class="stat-label">待加强</text>
+      </view>
+      <text class="stat-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 提示信息 -->
+  <view class="tips" wx:if="{{!hasUserInfo}}">
+    <text class="tips-text">登录后可记录学习进度</text>
+  </view>
+</view>

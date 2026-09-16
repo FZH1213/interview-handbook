@@ -1,8 +1,24 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/basic/content",
-    "pages/advanced/content"
+    "pages/questions/index",
+    "pages/summary/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageBasic",
+      "name": "basic",
+      "pages": [
+        "pages/content"
+      ]
+    },
+    {
+      "root": "packageAdvanced",
+      "name": "advanced",
+      "pages": [
+        "pages/content"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,16 +33,16 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/basic/content",
-        "text": "基础面试",
-        "iconPath": "assets/basic.png",
-        "selectedIconPath": "assets/basic-active.png"
+        "pagePath": "pages/questions/index",
+        "text": "面试题",
+        "iconPath": "assets/question.png",
+        "selectedIconPath": "assets/question-active.png"
       },
       {
-        "pagePath": "pages/advanced/content",
-        "text": "进阶面试",
-        "iconPath": "assets/advanced.png",
-        "selectedIconPath": "assets/advanced-active.png"
+        "pagePath": "pages/summary/index",
+        "text": "总结",
+        "iconPath": "assets/summary.png",
+        "selectedIconPath": "assets/summary-active.png"
       }
     ]
   },

@@ -1,4 +1,4 @@
-// pages/advanced/content.js
+// pages/basic/content.js
 const app = getApp()
 
 Page({
@@ -29,7 +29,7 @@ Page({
 
   // 加载章节索引
   loadSections() {
-    const sectionsData = require('../../packageAdvanced/data/sections.js')
+    const sectionsData = require('../data/sections.js')
     // 为每个章节添加唯一索引
     const sections = sectionsData.sections.map((s, idx) => ({
       ...s,
@@ -48,11 +48,19 @@ Page({
 
     // 直接require，不能使用动态路径
     if (chunk === 0) {
-      questions = require('../../packageAdvanced/data/questions_0.js')
+      questions = require('../data/questions_0.js')
     } else if (chunk === 1) {
-      questions = require('../../packageAdvanced/data/questions_1.js')
+      questions = require('../data/questions_1.js')
     } else if (chunk === 2) {
-      questions = require('../../packageAdvanced/data/questions_2.js')
+      questions = require('../data/questions_2.js')
+    } else if (chunk === 3) {
+      questions = require('../data/questions_3.js')
+    } else if (chunk === 4) {
+      questions = require('../data/questions_4.js')
+    } else if (chunk === 5) {
+      questions = require('../data/questions_5.js')
+    } else if (chunk === 6) {
+      questions = require('../data/questions_6.js')
     } else {
       this.setData({ hasMore: false })
       return
@@ -79,7 +87,7 @@ Page({
       displayQuestions: this.filterQuestions(allQuestions, this.data.currentSection, this.data.searchText),
       loadedCount: allQuestions.length,
       currentChunk: this.data.currentChunk + 1,
-      hasMore: this.data.currentChunk + 1 < 3  // 3个数据块
+      hasMore: this.data.currentChunk + 1 < 7  // 7个数据块
     })
   },
 
