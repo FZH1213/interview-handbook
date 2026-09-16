@@ -3,7 +3,9 @@ Page({
   data: {
     type: '',
     title: '',
-    questions: []
+    questions: [],
+    showDetail: false,
+    currentQuestion: {}
   },
 
   onLoad(options) {
@@ -54,5 +56,27 @@ Page({
     const toImprove = wx.getStorageSync('toImproveQuestions') || {}
     wx.setStorageSync('masteredCount', Object.keys(mastered).length)
     wx.setStorageSync('toImproveCount', Object.keys(toImprove).length)
+  },
+
+  // 显示题目详情
+  showQuestionDetail(e) {
+    const index = e.currentTarget.dataset.index
+    const question = this.data.questions.find(q => q.index === index)
+    if (question) {
+      this.setData({
+        showDetail: true,
+        currentQuestion: question
+      })
+    }
+  },
+
+  // 关闭题目详情
+  closeQuestionDetail() {
+    this.setData({
+      showDetail: false,
+      currentQuestion: {}
+    })
+    // 刷新列表
+    this.loadQuestions()
   }
 })

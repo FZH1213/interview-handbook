@@ -9,10 +9,17 @@
   </view>
 
   <view wx:else class="question-list">
-    <view class="question-item" wx:for="{{questions}}" wx:key="index">
+    <view class="question-item" wx:for="{{questions}}" wx:key="index" bindtap="showQuestionDetail" data-index="{{item.index}}">
       <view class="question-index">{{item.index}}</view>
       <view class="question-title">{{item.title}}</view>
-      <view class="remove-btn" data-index="{{item.index}}" bindtap="removeQuestion">×</view>
+      <view class="remove-btn" data-index="{{item.index}}" catchtap="removeQuestion">×</view>
     </view>
   </view>
 </view>
+
+<!-- 题目详情弹窗 -->
+<question-detail
+  show="{{showDetail}}"
+  question="{{currentQuestion}}"
+  bind:close="closeQuestionDetail"
+/>

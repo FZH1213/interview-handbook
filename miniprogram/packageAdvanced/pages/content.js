@@ -8,12 +8,13 @@ Page({
     searchText: '',
     allQuestions: [],
     displayQuestions: [],
-    expandedIndex: -1,
     total: 0,
     loadedCount: 0,
     hasMore: true,
     showBackTop: false,
-    currentChunk: 0
+    currentChunk: 0,
+    showDetail: false,
+    currentQuestion: {}
   },
 
   onLoad() {
@@ -102,60 +103,24 @@ Page({
     this.loadMarks()
   },
 
-  // 标记为已摸清
-  toggleMastered(e) {
+  // 显示题目详情
+  showQuestionDetail(e) {
     const index = e.currentTarget.dataset.index
-    const title = e.currentTarget.dataset.title
-    const mastered = wx.getStorageSync('masteredQuestions') || {}
-
-    // 添加标记
-    mastered[index] = {
-      index,
-      title,
-      timestamp: Date.now()
-    }
-
-    wx.setStorageSync('masteredQuestions', mastered)
-
-    // 移除待加强
-    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
-    delete toImprove[index]
-    wx.setStorageSync('toImproveQuestions', toImprove)
-
-    this.loadMarks()
-    this.updateSummaryCount()
+    const question = this.data.displayQuestions[index]
+    this.setData({
+      showDetail: true,
+      currentQuestion: question
+    })
   },
 
-  // 标记为待加强
-  toggleToImprove(e) {
-    const index = e.currentTarget.dataset.index
-    const title = e.currentTarget.dataset.title
-    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
-
-    // 添加标记
-    toImprove[index] = {
-      index,
-      title,
-      timestamp: Date.now()
-    }
-
-    wx.setStorageSync('toImproveQuestions', toImprove)
-
-    // 移除已摸清
-    const mastered = wx.getStorageSync('masteredQuestions') || {}
-    delete mastered[index]
-    wx.setStorageSync('masteredQuestions', mastered)
-
+  // 关闭题目详情
+  closeQuestionDetail() {
+    this.setData({
+      showDetail: false,
+      currentQuestion: {}
+    })
+    // 刷新标记状态
     this.loadMarks()
-    this.updateSummaryCount()
-  },
-
-  // 更新总结页面的数量
-  updateSummaryCount() {
-    const mastered = wx.getStorageSync('masteredQuestions') || {}
-    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
-    wx.setStorageSync('masteredCount', Object.keys(mastered).length)
-    wx.setStorageSync('toImproveCount', Object.keys(toImprove).length)
   },
 
   // 加载更多
@@ -168,8 +133,7 @@ Page({
     const section = e.currentTarget.dataset.section
     this.setData({
       currentSection: section,
-      displayQuestions: this.filterQuestions(this.data.allQuestions, section, this.data.searchText),
-      expandedIndex: -1
+      displayQuestions: this.filterQuestions(this.data.allQuestions, section, this.data.searchText)
     })
   },
 
@@ -178,8 +142,7 @@ Page({
     const searchText = e.detail.value.toLowerCase()
     this.setData({
       searchText,
-      displayQuestions: this.filterQuestions(this.data.allQuestions, this.data.currentSection, searchText),
-      expandedIndex: -1
+      displayQuestions: this.filterQuestions(this.data.allQuestions, this.data.currentSection, searchText)
     })
   },
 
@@ -199,16 +162,6 @@ Page({
     }
 
     return result
-  },
-
-  // 展开/收起问题
-  toggleQuestion(e) {
-    const index = e.currentTarget.dataset.index
-    // 使用全局索引来管理展开状态，避免筛选后索引错乱
-    const globalIndex = this.data.displayQuestions[index].index
-    this.setData({
-      expandedIndex: this.data.expandedIndex === globalIndex ? -1 : globalIndex
-    })
   },
 
   // 回到顶部

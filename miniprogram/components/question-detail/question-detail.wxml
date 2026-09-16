@@ -1,0 +1,37 @@
+<!--components/question-detail/question-detail.wxml-->
+<view class="modal-mask" wx:if="{{show}}" bindtap="onClose">
+  <view class="modal-container" catchtap>
+    <view class="modal-header">
+      <view class="question-number">{{question.index}}</view>
+      <view class="question-title">{{question.title}}</view>
+      <view class="close-btn" bindtap="onClose">×</view>
+    </view>
+
+    <scroll-view class="modal-content" scroll-y enhanced bounces="{{false}}">
+      <!-- 摘要 -->
+      <view class="content-text" wx:if="{{question.summary}}">
+        <text>{{question.summary}}</text>
+      </view>
+
+      <!-- 追问 -->
+      <view class="follow-up" wx:if="{{question.followUp && question.followUp.length > 0}}">
+        <view class="follow-up-title">💬 面试官追问</view>
+        <view wx:for="{{question.followUp}}" wx:for-item="fu" wx:for-index="fuIndex" wx:key="fuIndex" class="follow-up-item">
+          <view class="follow-up-question">{{fu.question}}</view>
+          <view class="follow-up-answer">{{fu.answer}}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="modal-footer">
+      <button
+        class="mark-btn {{isMastered ? 'mastered active' : 'mastered'}}"
+        bindtap="toggleMastered"
+      >已摸清</button>
+      <button
+        class="mark-btn {{isToImprove ? 'to-improve active' : 'to-improve'}}"
+        bindtap="toggleToImprove"
+      >待加强</button>
+    </view>
+  </view>
+</view>

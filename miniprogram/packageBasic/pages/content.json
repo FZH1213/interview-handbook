@@ -2,5 +2,8 @@
   "navigationBarTitleText": "基础面试题",
   "navigationBarBackgroundColor": "#8B9DAA",
   "navigationBarTextStyle": "white",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "question-detail": "/components/question-detail/question-detail"
+  }
 }

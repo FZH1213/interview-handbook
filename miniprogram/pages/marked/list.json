@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "标记题目",
-  "usingComponents": {}
+  "usingComponents": {
+    "question-detail": "/components/question-detail/question-detail"
+  }
 }

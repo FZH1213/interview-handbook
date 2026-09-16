@@ -102,16 +102,25 @@
   letter-spacing: 0.5rpx;
 }
 
-.question-toggle {
-  font-size: 24rpx;
-  color: #C4A5A5;
-  transition: transform 0.3s ease;
+.question-status {
   margin-left: 12rpx;
-  opacity: 0.6;
 }
 
-.question-toggle.expanded {
-  transform: rotate(180deg);
+.status-badge {
+  font-size: 20rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 12rpx;
+  font-weight: 500;
+}
+
+.status-badge.mastered {
+  background: #E8F5E9;
+  color: #4CAF50;
+}
+
+.status-badge.to-improve {
+  background: #FFF3E0;
+  color: #FF9800;
 }
 
 .question-detail {

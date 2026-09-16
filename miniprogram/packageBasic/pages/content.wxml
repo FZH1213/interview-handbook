@@ -32,46 +32,16 @@
       wx:for="{{displayQuestions}}"
       wx:key="index"
       class="question-card card"
-      bindtap="toggleQuestion"
+      bindtap="showQuestionDetail"
       data-index="{{index}}"
     >
       <!-- 问题标题 -->
       <view class="question-header">
         <view class="question-number">{{item.index}}</view>
         <view class="question-title">{{item.title}}</view>
-        <view class="question-toggle {{expandedIndex === item.index ? 'expanded' : ''}}">▼</view>
-      </view>
-
-      <!-- 问题详情 -->
-      <view class="question-detail" wx:if="{{expandedIndex === item.index}}">
-        <!-- 摘要 -->
-        <view class="content-text" wx:if="{{item.summary}}">
-          <text>{{item.summary}}</text>
-        </view>
-
-        <!-- 追问 -->
-        <view class="follow-up" wx:if="{{item.followUp.length > 0}}">
-          <view class="follow-up-title">💬 面试官追问</view>
-          <view wx:for="{{item.followUp}}" wx:for-item="fu" wx:for-index="fuIndex" wx:key="fuIndex" class="follow-up-item">
-            <view class="follow-up-question">{{fu.question}}</view>
-            <view class="follow-up-answer">{{fu.answer}}</view>
-          </view>
-        </view>
-
-        <!-- 标记按钮 -->
-        <view class="mark-buttons">
-          <button
-            class="mark-btn-mini {{item.isMastered ? 'mastered active' : 'mastered'}}"
-            data-index="{{item.index}}"
-            data-title="{{item.title}}"
-            catchtap="toggleMastered"
-          >已摸清</button>
-          <button
-            class="mark-btn-mini {{item.isToImprove ? 'to-improve active' : 'to-improve'}}"
-            data-index="{{item.index}}"
-            data-title="{{item.title}}"
-            catchtap="toggleToImprove"
-          >待加强</button>
+        <view class="question-status">
+          <text wx:if="{{item.isMastered}}" class="status-badge mastered">已摸清</text>
+          <text wx:elif="{{item.isToImprove}}" class="status-badge to-improve">待加强</text>
         </view>
       </view>
     </view>
@@ -85,3 +55,10 @@
   <!-- 回到顶部 -->
   <view class="back-top" bindtap="backToTop" wx:if="{{showBackTop}}">↑</view>
 </view>
+
+<!-- 题目详情弹窗 -->
+<question-detail
+  show="{{showDetail}}"
+  question="{{currentQuestion}}"
+  bind:close="closeQuestionDetail"
+/>
