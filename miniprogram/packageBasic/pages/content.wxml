@@ -57,6 +57,22 @@
             <view class="follow-up-answer">{{fu.answer}}</view>
           </view>
         </view>
+
+        <!-- 标记按钮 -->
+        <view class="mark-buttons">
+          <button
+            class="mark-btn-mini {{item.isMastered ? 'mastered active' : 'mastered'}}"
+            data-index="{{item.index}}"
+            data-title="{{item.title}}"
+            catchtap="toggleMastered"
+          >已摸清</button>
+          <button
+            class="mark-btn-mini {{item.isToImprove ? 'to-improve active' : 'to-improve'}}"
+            data-index="{{item.index}}"
+            data-title="{{item.title}}"
+            catchtap="toggleToImprove"
+          >待加强</button>
+        </view>
       </view>
     </view>
   </view>

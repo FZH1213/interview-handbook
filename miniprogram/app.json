@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/questions/index",
-    "pages/summary/index"
+    "pages/summary/index",
+    "pages/marked/list"
   ],
   "subpackages": [
     {

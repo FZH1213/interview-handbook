@@ -245,3 +245,55 @@
   color: #C4A5A5;
   border: 1rpx solid #E8E4E0;
 }
+
+/* 小标记按钮 */
+.mark-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12rpx;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #E8E4E0;
+}
+
+.mark-btn-mini {
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 22rpx;
+  border-radius: 24rpx;
+  border: 1rpx solid #E8E4E0;
+  background: #FFFFFF;
+  padding: 0 20rpx;
+}
+
+.mark-btn-mini::after {
+  border: none;
+}
+
+.mark-btn-mini.mastered {
+  color: #9A958F;
+  border-color: #E8E4E0;
+  width: 160rpx;
+}
+
+.mark-btn-mini.mastered.active {
+  background: #4CAF50;
+  color: #FFFFFF;
+  border-color: #4CAF50;
+}
+
+.mark-btn-mini.to-improve {
+  color: #9A958F;
+  border-color: #E8E4E0;
+  width: 160rpx;
+}
+
+.mark-btn-mini.to-improve.active {
+  background: #FF9800;
+  color: #FFFFFF;
+  border-color: #FF9800;
+}
+
+.mark-btn-mini:active {
+  opacity: 0.7;
+}

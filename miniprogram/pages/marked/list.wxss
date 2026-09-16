@@ -1,0 +1,80 @@
+/* pages/marked/list.wxss */
+.marked-container {
+  min-height: 100vh;
+  background: #F5F1EB;
+}
+
+.header {
+  background: #FFFFFF;
+  padding: 32rpx;
+  border-bottom: 1rpx solid #E8E4E0;
+}
+
+.header-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #3D3A36;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #9A958F;
+}
+
+.question-list {
+  padding: 24rpx;
+}
+
+.question-item {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 32rpx 24rpx;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(61, 58, 54, 0.06);
+}
+
+.question-index {
+  width: 56rpx;
+  height: 56rpx;
+  background: linear-gradient(135deg, #8B9DAA 0%, #7A8B99 100%);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 500;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.question-title {
+  flex: 1;
+  font-size: 28rpx;
+  color: #3D3A36;
+  line-height: 1.5;
+}
+
+.remove-btn {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #9A958F;
+  margin-left: 16rpx;
+}
+
+.remove-btn:active {
+  opacity: 0.6;
+}

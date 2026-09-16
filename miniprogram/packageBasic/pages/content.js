@@ -19,12 +19,29 @@ Page({
   onLoad() {
     this.loadSections()
     this.loadNextChunk()
+    this.loadMarks()
   },
 
   onShow() {
     if (this.data.showBackTop) {
       this.setData({ showBackTop: false })
     }
+    this.loadMarks()
+  },
+
+  // 加载标记数据
+  loadMarks() {
+    const mastered = wx.getStorageSync('masteredQuestions') || {}
+    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
+
+    // 更新显示的问题列表中的标记状态
+    const displayQuestions = this.data.displayQuestions.map(q => ({
+      ...q,
+      isMastered: !!mastered[q.index],
+      isToImprove: !!toImprove[q.index]
+    }))
+
+    this.setData({ displayQuestions })
   },
 
   // 加载章节索引
@@ -88,6 +105,65 @@ Page({
       currentChunk: this.data.currentChunk + 1,
       hasMore: this.data.currentChunk + 1 < 7  // 7个数据块
     })
+
+    // 加载标记状态
+    this.loadMarks()
+  },
+
+  // 标记为已摸清
+  toggleMastered(e) {
+    const index = e.currentTarget.dataset.index
+    const title = e.currentTarget.dataset.title
+    const mastered = wx.getStorageSync('masteredQuestions') || {}
+
+    // 添加标记
+    mastered[index] = {
+      index,
+      title,
+      timestamp: Date.now()
+    }
+
+    wx.setStorageSync('masteredQuestions', mastered)
+
+    // 移除待加强
+    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
+    delete toImprove[index]
+    wx.setStorageSync('toImproveQuestions', toImprove)
+
+    this.loadMarks()
+    this.updateSummaryCount()
+  },
+
+  // 标记为待加强
+  toggleToImprove(e) {
+    const index = e.currentTarget.dataset.index
+    const title = e.currentTarget.dataset.title
+    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
+
+    // 添加标记
+    toImprove[index] = {
+      index,
+      title,
+      timestamp: Date.now()
+    }
+
+    wx.setStorageSync('toImproveQuestions', toImprove)
+
+    // 移除已摸清
+    const mastered = wx.getStorageSync('masteredQuestions') || {}
+    delete mastered[index]
+    wx.setStorageSync('masteredQuestions', mastered)
+
+    this.loadMarks()
+    this.updateSummaryCount()
+  },
+
+  // 更新总结页面的数量
+  updateSummaryCount() {
+    const mastered = wx.getStorageSync('masteredQuestions') || {}
+    const toImprove = wx.getStorageSync('toImproveQuestions') || {}
+    wx.setStorageSync('masteredCount', Object.keys(mastered).length)
+    wx.setStorageSync('toImproveCount', Object.keys(toImprove).length)
   },
 
   // 加载更多

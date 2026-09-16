@@ -1,0 +1,18 @@
+<!--pages/marked/list.wxml-->
+<view class="marked-container">
+  <view class="header">
+    <text class="header-title">{{title}} ({{questions.length}})</text>
+  </view>
+
+  <view wx:if="{{questions.length === 0}}" class="empty">
+    <text class="empty-text">暂无标记题目</text>
+  </view>
+
+  <view wx:else class="question-list">
+    <view class="question-item" wx:for="{{questions}}" wx:key="index">
+      <view class="question-index">{{item.index}}</view>
+      <view class="question-title">{{item.title}}</view>
+      <view class="remove-btn" data-index="{{item.index}}" bindtap="removeQuestion">×</view>
+    </view>
+  </view>
+</view>

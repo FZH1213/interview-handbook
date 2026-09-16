@@ -54,17 +54,15 @@ Page({
 
   // 跳转到已摸清列表
   goToMastered() {
-    wx.showToast({
-      title: '功能开发中',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/marked/list?type=mastered'
     })
   },
 
   // 跳转到待加强列表
   goToToImprove() {
-    wx.showToast({
-      title: '功能开发中',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/marked/list?type=toImprove'
     })
   }
 })
