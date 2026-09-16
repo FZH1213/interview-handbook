@@ -3,12 +3,12 @@
   <view class="header">
     <view class="logo">🖊️</view>
     <view class="title">前端面试题库</view>
-    <view class="subtitle">541道精选面试题</view>
+    <view class="subtitle">711道精选面试题</view>
   </view>
 
   <view class="stats">
     <view class="stat-item">
-      <view class="stat-number">368</view>
+      <view class="stat-number">538</view>
       <view class="stat-label">基础题</view>
     </view>
     <view class="divider-v"></view>
