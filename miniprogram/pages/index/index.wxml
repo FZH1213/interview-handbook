@@ -2,7 +2,7 @@
 <view class="index-container">
   <view class="header">
     <view class="logo">🖊️</view>
-    <view class="title">前端面试题库</view>
+    <view class="title">前端通关册</view>
     <view class="subtitle">711道精选面试题</view>
   </view>
 

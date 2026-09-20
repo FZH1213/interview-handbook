@@ -24,7 +24,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#A69F98",
-    "navigationBarTitleText": "前端面试题",
+    "navigationBarTitleText": "前端通关册",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -35,7 +35,7 @@
     "list": [
       {
         "pagePath": "pages/questions/index",
-        "text": "面试题",
+        "text": "通关题",
         "iconPath": "assets/question.png",
         "selectedIconPath": "assets/question-active.png"
       },
